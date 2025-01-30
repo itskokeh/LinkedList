@@ -42,11 +42,11 @@ export class LinkedList {
     this.size++
   }
 
-  size() {
+  getSize() {
     return this.size
   }
 
-  head() {
+  getHead() {
     return this.head
   }
 
@@ -148,6 +148,9 @@ export class LinkedList {
         current = current.next
         count++
       }
+
+      newNode.next = current.next
+      current.next = newNode
     }
     this.size++
   }
@@ -176,7 +179,6 @@ export class LinkedList {
     }
 
     this.size--
-    return removedNode
   }
 }
 
