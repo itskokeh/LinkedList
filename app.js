@@ -50,7 +50,8 @@ export class LinkedList {
     return this.head
   }
 
-  tail() {
+  getTail() {
+    if (!this.head) return null
     let current = this.head
     while (current.next) {
       current = current.next
@@ -81,7 +82,9 @@ export class LinkedList {
       return null
     }
 
+    let removedNode
     if (!this.head.next) {
+      removedNode = this.head
       this.head = null
       this.size--
       return
@@ -92,8 +95,10 @@ export class LinkedList {
       current = current.next
     }
 
+    removedNode = current.next
     current.next = null
     this.size--
+    return removedNode
   }
 
   contains(value) {
@@ -179,6 +184,7 @@ export class LinkedList {
     }
 
     this.size--
+    return removedNode
   }
 }
 
